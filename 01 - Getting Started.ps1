@@ -14,7 +14,7 @@ Install-Module -Name AWS.Tools.Installer -Verbose -Force
 Get-Command -Module AWS.Tools.Installer
 
 # Installing multiple modules
-Install-AWSToolsModule -Verbose -Name Ec2, S3, Lambda, SimpleSystemsManagement -Force
+Install-AWSToolsModule -Verbose -Name Ec2, S3, Lambda, SimpleSystemsManagement, Cloudwatch, CloudWatchLogs -Force
 
 # Double Check our modules
 Get-Module -ListAvailable AWS.Tools*
@@ -23,12 +23,12 @@ Get-Module -ListAvailable AWS.Tools*
 Update-AWSToolsModule -Verbose -Force
 
 # Setting up your session
-Set-AWSCredential -AccessKey AKIARZ7XEWCMGUPMKKG3 -SecretKey OHg+1iJahMVCzK4/CQr6isLqtvoTaBsPXpQwOxJC -Verbose
+Set-AWSCredential -AccessKey "" -SecretKey "" -Verbose
 
 # Presisting Credentials
 $awsCreds = @{
-    AccessKey = 'AKIARZ7XEWCMGUPMKKG3'
-    SecretKey = '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'
+    AccessKey = ''
+    SecretKey = ''
     StoreAs   = 'default'
     Verbose   =  $true
 }
