@@ -9,13 +9,13 @@ Get-AWSPowerShellLambdaTemplate
 # Creating A Lambda
 New-AWSPowerShellLambda -Template basic -Directory 'C:\github\PowerShellAndAWS\BasicLambda'
 
-Publish-AWSPowerShellLambda -ScriptPath 'C:\github\PowerShellAndAWS\BasicLambda\basic.ps1' -Name 'BasicLambda' -Verbose
+# Publish Our Lambda
+Publish-AWSPowerShellLambda -ScriptPath 'C:\github\PowerShellAndAWS\BasicLambda\basic.ps1' -Name 'BasicLambda' -Verbose 
 
+# Testing out the lambda
 Invoke-LMFunction -FunctionName 'BasicLambda' -LogType Tail -OutVariable BasicLmabda 
 
 [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($BasicLmabda.LogResult))
-
-
 
 # More Advanced 
 New-AWSPowerShellLambda -Template S3Event -ProjectName ResizeS3Photos -WithProject -Verbose

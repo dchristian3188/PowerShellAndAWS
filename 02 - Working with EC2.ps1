@@ -81,9 +81,10 @@ Get-SSMLatestEC2Image -ImageName 'Windows_Server-2019-English-Full-Base' -Path '
 (Get-Command New-EC2Instance).Parameters.Count
 
 # Create Multiple Instances
-1..5 | % {
+1..5 | ForEach-Object {
     Get-SSMLatestEC2Image -ImageName 'Windows_Server-2019-English-Full-Base' -Path 'ami-windows-latest' | 
-        New-EC2Instance -InstanceType t2.large -SecurityGroupId $groupID -KeyName $keyName -UserData $userData -EncodeUserData -Verbose }
+        New-EC2Instance -InstanceType t2.large -SecurityGroupId $groupID -KeyName $keyName -UserData $userData -EncodeUserData -Verbose 
+    }
 
 
 # Getting the password

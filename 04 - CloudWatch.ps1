@@ -4,12 +4,13 @@ Get-CWLLogGroup -LogGroupNamePrefix '/aws/lambda/ResizeS3Photos' |
 
 # Find the log streams
 Get-CWLLogGroup -LogGroupNamePrefix '/aws/lambda/ResizeS3Photos' | 
-    Get-CWLLogStream
+    Get-CWLLogStream | 
+    Sort-Object -Descending CreationTime
 
 # Looking at the events
-Get-CWLLogEvent -LogGroupName '/aws/lambda/ResizeS3Photos' -LogStreamName '2021/08/02/[$LATEST]effe97aece154f6a866db8d2b0621e92'
+Get-CWLLogEvent -LogGroupName '/aws/lambda/ResizeS3Photos' -LogStreamName '2021/08/03/[$LATEST]348c1e96f50748299ffc361ca8ffbeb4'
 
-Get-CWLLogEvent -LogGroupName '/aws/lambda/ResizeS3Photos' -LogStreamName '2021/08/02/[$LATEST]effe97aece154f6a866db8d2b0621e92' | 
+Get-CWLLogEvent -LogGroupName '/aws/lambda/ResizeS3Photos' -LogStreamName '2021/08/03/[$LATEST]348c1e96f50748299ffc361ca8ffbeb4' | 
     Select-Object -ExpandProperty Events
 
 # A better log function

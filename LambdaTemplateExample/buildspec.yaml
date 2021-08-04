@@ -1,0 +1,9 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - pwsh -command Install-Module -Name AWSLambdaPSCore -Verbose -Force
+  build:
+    commands:
+      - pwsh -command Publish-AWSPowerShellLambda -ScriptPath ./basic/basic.ps1 -Name 'PowerShellCICD-Sample' -IAMRoleArn arn:aws:iam::124535484568:role/PowerShell-Lambda-ExecutionRole -Verbose

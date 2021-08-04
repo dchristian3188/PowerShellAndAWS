@@ -12,5 +12,4 @@
 #Requires -Modules @{ModuleName='AWS.Tools.Common';ModuleVersion='4.1.14.0'}
 
 # Uncomment to send the input event to CloudWatch Logs
-Write-Host (ConvertTo-Json -InputObject $LambdaInput -Compress -Depth 5)
-Write-Host "Hello SoCalPosh"
+# Write-Host (ConvertTo-Json -InputObject $LambdaInput -Compress -Depth 5)
